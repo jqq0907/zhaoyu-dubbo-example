@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: dubbo-consume
+server:
+  port: 9902
+dubbo:
+  registry:
+    # 注册中心地址
+    address: nacos://127.0.0.1:8848?namespace=6dde0b05-4b8e-4a4d-a42e-18e4f9c0ca33
+    # nacos中分组名称，要和提供方名称一样
+    group: DEFAULT_GROUP
+  application:
+    name: ${spring.application.name}
+  protocol:
+    name: dubbo
+    port: 20880
+    id: dubbo
+  scan:
+    base-packages: com.zhaoyu
+management:
+  endpoint:
+    health:
+      show-details: always
+

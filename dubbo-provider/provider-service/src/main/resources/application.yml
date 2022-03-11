@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: provider-service
+  datasource:
+    druid:
+      initial-size: 8
+    username: root
+    password: root
+    url: jdbc:mysql://47.119.152.95:3060/security-admin-dubbo
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+server:
+  port: 9901
+dubbo:
+  application:
+    name: ${spring.application.name}
+    logger: slf4j
+  registry:
+    address: nacos://127.0.0.1:8848?namespace=6dde0b05-4b8e-4a4d-a42e-18e4f9c0ca33
+  protocol:
+    name: dubbo
+    port: 20881
+  scan:
+    base-packages: com.zhaoyu
+logging:
+  file:
+    path: ./ # 日志文件存放目录
+  level:
+    com: debug
